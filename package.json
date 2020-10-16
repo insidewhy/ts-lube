@@ -1,0 +1,47 @@
+{
+  "name": "ts-lube",
+  "version": "0.0.1",
+  "description": "run tsc incremental watch and restart process when updates are detected",
+  "author": "insidewhy <github@chilon.net>",
+  "license": "ISC",
+  "keywords": [
+    "typescript",
+    "tsc"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/insidewhy/ts-lube.git"
+  },
+  "main": "dist/index.js",
+  "typings": "dist/index",
+  "bin": {
+    "ts-lube": "./bin/ts-lube"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "prepublishOnly": "yarn build",
+    "test": "echo TODO",
+    "build": "tsc -p src",
+    "watch": "yarn build -w",
+    "clean": "rimraf dist",
+    "lint": "eslint 'src/*.ts'",
+    "lint-fix": "yarn lint --fix",
+    "run-prettier": "prettier 'src/*.ts' '*.md'",
+    "validate-prettiness": "yarn run-prettier -c",
+    "make-prettier": "yarn run-prettier --write",
+    "validate": "yarn test && yarn lint && yarn validate-prettiness"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "12.12.37",
+    "@typescript-eslint/eslint-plugin": "2.34.0",
+    "@typescript-eslint/parser": "2.34.0",
+    "eslint": "7.1.0",
+    "eslint-config-prettier": "6.11.0",
+    "husky": "4.2.5",
+    "prettier": "2.0.5",
+    "pretty-quick": "2.0.1",
+    "rimraf": "3.0.2",
+    "typescript": "3.9.3"
+  }
+}
